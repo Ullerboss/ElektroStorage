@@ -1,7 +1,6 @@
 package org.example.elektrostorage.component;
 
-import org.example.elektrostorage.component.dto.ComponentDto;
-import org.example.elektrostorage.component.dto.CreateComponentDto;
+import org.example.elektrostorage.component.dto.*;
 
 import java.util.List;
 

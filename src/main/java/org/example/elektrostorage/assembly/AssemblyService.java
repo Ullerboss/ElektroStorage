@@ -1,6 +1,6 @@
 package org.example.elektrostorage.assembly;
 
-import org.example.elektrostorage.assembly.dto.AssemblyListDto;
+import org.example.elektrostorage.assembly.dto.*;
 
 import java.util.List;
 

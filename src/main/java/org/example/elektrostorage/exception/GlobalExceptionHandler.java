@@ -16,4 +16,12 @@ class GlobalExceptionHandler {
         pd.setDetail(ex.getMessage());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(pd);
     }
+
+    @ExceptionHandler(BadRequestException.class)
+    ResponseEntity<ProblemDetail> handleBadRequest(BadRequestException ex) {
+        ProblemDetail pd = ProblemDetail.forStatus(HttpStatus.BAD_REQUEST);
+        pd.setTitle("Ugyldig forespørgsel");
+        pd.setDetail(ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(pd);
+    }
 }

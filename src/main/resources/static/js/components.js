@@ -98,8 +98,12 @@ function renderComponentRow(component) {
 }
 
 function buildComponentRow(component) {
+
     const row = document.createElement("tr");
     row.setAttribute("data-id", component.id);
+
+    const idCell = document.createElement("td");
+    idCell.textContent = component.id;
 
     const nameCell = document.createElement("td");
     nameCell.textContent = component.name;
@@ -124,7 +128,7 @@ function buildComponentRow(component) {
     }
     actionCell.appendChild(actionButton);
 
-    row.append(nameCell, supplierCell, partNumberCell, statusCell, actionCell);
+    row.append(idCell, nameCell, supplierCell, partNumberCell, statusCell, actionCell);
     return row;
 }
 

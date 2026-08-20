@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bestillinger - ElektroStorage</title>
+    <title>Bestillingshistorik - ElektroStorage</title>
     <link rel="stylesheet" href="styling/styles.css">
 </head>
 <body>
@@ -20,50 +20,30 @@
     </div>
 </nav>
 
-<aside class="orders-sidebar">
-    <h3>Leverandører</h3>
+<main class="container">
+    <p><a href="orders.html">&larr; Tilbage til bestillinger</a></p>
+    <h2>Bestillingshistorik</h2>
+    <p>Tidligere modtagne bestillinger.</p>
+
     <table>
         <thead>
         <tr>
             <th>Id</th>
-            <th>Navn</th>
-        </tr>
-        </thead>
-        <tbody id="suppliersTableBody"></tbody>
-    </table>
-</aside>
-
-<main class="container">
-    <h2>Bestillinger</h2>
-    <p>Aktive bestillinger og kladder</p>
-
-    <table>
-        <thead>
-        <tr>
-            <th>Bestillings Id</th>
             <th>Leverandør</th>
-            <th>Status</th>
             <th>Forventet levering</th>
+            <th>Modtaget dato</th>
             <th>Tracking-kode</th>
             <th>Handling</th>
         </tr>
         </thead>
-        <tbody id="ordersTableBody"></tbody>
+        <tbody id="historyTableBody"></tbody>
     </table>
-
-    <h3>Opret ny bestilling</h3>
-    <form id="orderForm">
-        <input type="number" id="supplierId" name="supplierId" placeholder="Leverandør-id" required>
-        <button type="submit">Opret</button>
-    </form>
-
-    <a href="orders-history.html" class="btn-link">Se modtagne bestillinger</a>
 </main>
 
 <footer class="footer">
     <p>ElektroStorage</p>
 </footer>
 
-<script src="js/orders.js"></script>
+<script src="js/orders-history.js"></script>
 </body>
 </html>

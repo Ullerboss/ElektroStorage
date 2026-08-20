@@ -64,6 +64,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 1rem;
+    margin-botton: 1.5rem;
 }
 
 th, td {
@@ -81,6 +82,33 @@ form {
 
 button {
     cursor: pointer;
+}
+
+.btn-link {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+    background: #2f3e46;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.orders-sidebar {
+    position: fixed;
+    top: 120px;
+    left: 2rem;
+    width: 220px;
+}
+
+@media (max-width: 900px) {
+    .orders-sidebar {
+        position: static;
+        left: auto;
+        top: auto;
+        width: auto;
+        margin: 1rem 2rem;
+    }
 }
 
 .footer {

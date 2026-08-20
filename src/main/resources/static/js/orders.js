@@ -5,6 +5,8 @@ const BASE_URL_ORDERS = "/orders";
 async function initApp() {
     const orders = await fetchOrders();
     displayOrders(orders);
+    const suppliers = await fetchSuppliers();
+    displaySuppliers(suppliers);
 
     document.querySelector("#orderForm").addEventListener("submit", handleFormSubmit);
 }
@@ -129,5 +131,37 @@ async function handleFormSubmit(event) {
     const created = await createOrder(newOrder);
     if (created) {
         window.location.href = `order.html?id=${created.id}`;
+    }
+}
+
+const BASE_URL_SUPPLIERS = "/suppliers";
+
+async function fetchSuppliers() {
+    try {
+        const response = await fetch(BASE_URL_SUPPLIERS);
+        if (!response.ok) {
+            throw new Error("Kunne ikke hente leverandører");
+        }
+        return await response.json();
+    } catch (error) {
+        console.error(error);
+        return [];
+    }
+}
+
+function displaySuppliers(suppliers) {
+    const tableBody = document.querySelector("#suppliersTableBody");
+    tableBody.innerHTML = "";
+    for (const supplier of suppliers) {
+        const row = document.createElement("tr");
+
+        const idCell = document.createElement("td");
+        idCell.textContent = supplier.id;
+
+        const nameCell = document.createElement("td");
+        nameCell.textContent = supplier.name;
+
+        row.append(idCell, nameCell);
+        tableBody.appendChild(row);
     }
 }

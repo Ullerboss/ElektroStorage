@@ -2,12 +2,14 @@ package org.example.elektrostorage.component;
 
 import org.example.elektrostorage.component.dto.ComponentDto;
 import org.example.elektrostorage.component.dto.CreateComponentDto;
+import org.example.elektrostorage.exception.NotFoundException;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ProblemDetail;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.assertj.MockMvcTester;
 
@@ -91,5 +93,32 @@ class ComponentControllerTest {
                 .bodyJson()
                 .convertTo(ComponentDto.class)
                 .satisfies(c -> assertThat(c.discontinued()).isTrue());
+    }
+
+    @Test
+    @DisplayName("POST /components - skal returnere 404 hvis leverandøren ikke findes")
+    @Order(4)
+    void shouldReturn404ForNonExistingSupplier() {
+        Long nonExistingSupplierId = 999L;
+        when(service.createComponent(any(CreateComponentDto.class)))
+                .thenThrow(new NotFoundException("Leverandøren med id: " + nonExistingSupplierId + ", blev ikke fundet :/"));
+
+        String requestBody = """
+            {
+                "name": "Freddy",
+                "supplierId": 999,
+                "externalPartNumber": "333-222-222"
+            }
+            """;
+
+        var request = mvc.post()
+                .uri("/components")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(requestBody);
+
+        assertThat(request)
+                .hasStatus(HttpStatus.NOT_FOUND)
+                .bodyJson()
+                .convertTo(ProblemDetail.class);
     }
 }

@@ -9,4 +9,5 @@ public interface ComponentService {
     List<ComponentDto> getAllComponents();
     ComponentDto createComponent(CreateComponentDto request);
     ComponentDto markAsDiscontinued(Long id);
+    ComponentDto reactivateComponent(Long id);
 }

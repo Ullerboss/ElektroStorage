@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventar - ElektroStorage</title>
+    <link rel="stylesheet" href="styling/styles.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="container">
+        <h1>ElektroStorage</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Hjem</a></li>
+            <li><a href="components.html">Kartotek</a></li>
+            <li><a href="orders.html">Bestillinger</a></li>
+            <li><a href="inventory.html" class="active">Inventar</a></li>
+            <li><a href="assemblies.html">Styklister</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main class="container">
+    <h2>Inventar</h2>
+    <p>Komponenter</p>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Komponent</th>
+            <th>Antal</th>
+            <th>Modtaget/Optalt dato</th>
+            <th>Optalt af</th>
+        </tr>
+        </thead>
+        <tbody id="inventoryTableBody"></tbody>
+    </table>
+
+    <h3>Indsend optælling</h3>
+    <form id="countForm">
+        <input type="number" id="componentId" name="componentId" placeholder="Komponent-id" required>
+        <input type="number" id="countedQuantity" name="countedQuantity" placeholder="Optalt antal" required>
+        <input type="text" id="countedBy" name="countedBy" placeholder="Optalt af" required>
+        <button type="submit">Indsend optælling</button>
+    </form>
+</main>
+
+<footer class="footer">
+    <p>ElektroStorage</p>
+</footer>
+
+<script src="js/inventory.js"></script>
+</body>
+</html>

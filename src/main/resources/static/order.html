@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestilling - ElektroStorage</title>
+    <link rel="stylesheet" href="styling/styles.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="container">
+        <h1>ElektroStorage</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Hjem</a></li>
+            <li><a href="components.html">Kartotek</a></li>
+            <li><a href="orders.html" class="active">Bestillinger</a></li>
+            <li><a href="inventory.html">Inventar</a></li>
+            <li><a href="assemblies.html">Styklister</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main class="container">
+    <p><a href="orders.html">&larr; Tilbage til bestillinger</a></p>
+    <h2 id="orderTitle">Bestilling</h2>
+    <p id="orderStatus"></p>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Komponent</th>
+            <th>Antal</th>
+        </tr>
+        </thead>
+        <tbody id="orderLinesBody"></tbody>
+    </table>
+
+    <div id="addLineSection">
+        <h3>Tilføj komponent</h3>
+        <form id="addLineForm">
+            <input type="number" id="componentId" name="componentId" placeholder="Komponent-id" required>
+            <input type="number" id="quantity" name="quantity" placeholder="Antal" required>
+            <button type="submit">Tilføj</button>
+        </form>
+        <button id="markAsSentButton">Marker som sendt</button>
+    </div>
+
+    <h3>Tracking-kode</h3>
+    <form id="trackingForm">
+        <input type="text" id="trackingCode" name="trackingCode" placeholder="Tracking-kode">
+        <button type="submit">Opdater</button>
+    </form>
+
+    <h3>Forventet levering</h3>
+    <form id="deliveryForm">
+        <input type="date" id="expectedDeliveryDate" name="expectedDeliveryDate">
+        <button type="submit">Opdater</button>
+    </form>
+</main>
+
+<footer class="footer">
+    <p>ElektroStorage</p>
+</footer>
+
+<script src="js/order.js"></script>
+</body>
+</html>

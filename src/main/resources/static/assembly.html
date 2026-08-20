@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stykliste - ElektroStorage</title>
+    <link rel="stylesheet" href="styling/styles.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="container">
+        <h1>ElektroStorage</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Hjem</a></li>
+            <li><a href="components.html">Kartotek</a></li>
+            <li><a href="orders.html">Bestillinger</a></li>
+            <li><a href="inventory.html">Inventar</a></li>
+            <li><a href="assemblies.html" class="active">Styklister</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main class="container">
+    <p><a href="assemblies.html">&larr; Tilbage til styklister</a></p>
+    <h2 id="assemblyTitle">Stykliste</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Komponent</th>
+            <th>Antal</th>
+        </tr>
+        </thead>
+        <tbody id="assemblyItemsBody"></tbody>
+    </table>
+</main>
+
+<footer class="footer">
+    <p>ElektroStorage</p>
+</footer>
+
+<script src="js/assembly.js"></script>
+</body>
+</html>

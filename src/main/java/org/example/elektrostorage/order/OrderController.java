@@ -43,4 +43,14 @@ class OrderController {
     public ResponseEntity<OrderDto> updateTrackingCode(@PathVariable Long id, @RequestBody UpdateTrackingCodeDto request) {
         return ResponseEntity.ok(orderService.updateTrackingCode(id, request));
     }
+
+    @PatchMapping("/{id}/expected-delivery")
+    public ResponseEntity<OrderDto> updateExpectedDeliveryDate(@PathVariable Long id, @RequestBody UpdateExpectedDeliveryDateDto request) {
+        return ResponseEntity.ok(orderService.updateExpectedDeliveryDate(id, request));
+    }
+
+    @PatchMapping("/{id}/receive")
+    public ResponseEntity<OrderDto> markOrderAsReceived(@PathVariable Long id) {
+        return ResponseEntity.ok(orderService.markOrderAsReceived(id));
+    }
 }

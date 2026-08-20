@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kartotek - ElektroStorage</title>
+    <link rel="stylesheet" href="styling/styles.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="container">
+        <h1>ElektroStorage</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Hjem</a></li>
+            <li><a href="components.html" class="active">Kartotek</a></li>
+            <li><a href="orders.html">Bestillinger</a></li>
+            <li><a href="inventory.html">Inventar</a></li>
+            <li><a href="assemblies.html">Styklister</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main class="container">
+    <h2>Kartotek</h2>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Navn</th>
+            <th>Leverandør</th>
+            <th>Eksternt varenummer</th>
+            <th>Status</th>
+            <th>Handling</th>
+        </tr>
+        </thead>
+        <tbody id="componentTableBody"></tbody>
+    </table>
+
+    <h3>Tilføj ny komponent</h3>
+    <form id="componentForm">
+        <input type="text" id="name" name="name" placeholder="Navn" required>
+        <input type="number" id="supplierId" name="supplierId" placeholder="Leverandør-id" required>
+        <input type="text" id="externalPartNumber" name="externalPartNumber" placeholder="Eksternt varenummer" required>
+        <button type="submit">Tilføj</button>
+    </form>
+</main>
+
+<footer class="footer">
+    <p>ElektroStorage</p>
+</footer>
+
+    <script src="js/components.js"></script>
+</body>
+</html>

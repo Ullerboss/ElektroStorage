@@ -85,6 +85,30 @@ public class OrderServiceImpl implements OrderService{
         return toDto(saved);
     }
 
+    @Override
+    public OrderDto updateExpectedDeliveryDate(Long orderId, UpdateExpectedDeliveryDateDto request) {
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new NotFoundException("Ordren med id: " + orderId + ", blev ikke fundet :/"));
+
+        order.setExpectedDeliveryDate(request.expectedDeliveryDate());
+        Order saved = orderRepository.save(order);
+        return toDto(saved);
+    }
+
+    @Override
+    public OrderDto markOrderAsReceived(Long orderId) {
+        Order order = orderRepository.findById(orderId)
+                .orElseThrow(() -> new NotFoundException("Ordren med id: " + orderId + ", blev ikke fundet :/"));
+
+        if (!order.isSent()) {
+            throw new BadRequestException("Kan ikke modtage en ordre der ikke er sendt endnu");
+        }
+
+        order.markAsReceived(LocalDate.now());
+        Order saved = orderRepository.save(order);
+        return toDto(saved);
+    }
+
 
 
 

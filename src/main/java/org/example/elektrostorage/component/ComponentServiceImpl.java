@@ -51,6 +51,15 @@ class ComponentServiceImpl implements ComponentService {
         return toDto(savedComponent);
     }
 
+    @Override
+    public ComponentDto reactivateComponent(Long id) {
+        Component component = componentRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException("Komponenten med id: " + id + ", blev ikke fundet :/"));
+        component.setDiscontinued(false);
+        Component savedComponent = componentRepository.save(component);
+        return toDto(savedComponent);
+    }
+
 
     private ComponentDto toDto(Component component) {
         return new ComponentDto(

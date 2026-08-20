@@ -34,7 +34,10 @@ class InventoryControllerTest {
     @DisplayName("GET /inventory - skal returnere en liste af modtagne komponenter")
     @Order(1)
     void shouldReturnReceivedComponentsList() {
-        ReceivedComponentDto received = new ReceivedComponentDto("LED 5mm rød", 100, LocalDate.parse("2026-03-01"));
+        ReceivedComponentDto received = new ReceivedComponentDto(1L,
+                "LED 5mm rød", 100,
+                LocalDate.parse("2026-03-01"),
+                "FreddyFresh");
         when(service.getReceivedComponents()).thenReturn(List.of(received));
 
         var request = mvc.get().uri("/inventory");

@@ -33,4 +33,9 @@ class ComponentController {
     public ResponseEntity<ComponentDto> markAsDiscontinued(@PathVariable Long id){
         return ResponseEntity.ok(componentService.markAsDiscontinued(id));
     }
+
+    @PatchMapping("/{id}/reactivate")
+    public ResponseEntity<ComponentDto> reactivateComponent(@PathVariable Long id) {
+        return ResponseEntity.ok(componentService.reactivateComponent(id));
+    }
 }

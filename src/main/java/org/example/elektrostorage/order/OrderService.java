@@ -11,4 +11,6 @@ public interface OrderService {
     OrderLineDto addOrderLine(Long orderId, AddOrderLineDto request);
     OrderDto markOrderAsSent(Long orderId);
     OrderDto updateTrackingCode(Long orderId, UpdateTrackingCodeDto request);
+    OrderDto updateExpectedDeliveryDate(Long orderId, UpdateExpectedDeliveryDateDto request);
+    OrderDto markOrderAsReceived(Long orderId);
 }

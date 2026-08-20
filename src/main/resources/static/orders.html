@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestillinger - ElektroStorage</title>
+    <link rel="stylesheet" href="styling/styles.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="container">
+        <h1>ElektroStorage</h1>
+        <ul class="nav-links">
+            <li><a href="index.html">Hjem</a></li>
+            <li><a href="components.html">Kartotek</a></li>
+            <li><a href="orders.html" class="active">Bestillinger</a></li>
+            <li><a href="inventory.html">Inventar</a></li>
+            <li><a href="assemblies.html">Styklister</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main class="container">
+    <h2>Bestillinger</h2>
+    <p>Bestillinger der ikke er markeret som modtaget endnu.</p>
+
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Leverandør</th>
+            <th>Status</th>
+            <th>Forventet levering</th>
+            <th>Tracking-kode</th>
+            <th>Handling</th>
+        </tr>
+        </thead>
+        <tbody id="ordersTableBody"></tbody>
+    </table>
+
+    <h3>Opret ny bestilling</h3>
+    <form id="orderForm">
+        <input type="number" id="supplierId" name="supplierId" placeholder="Leverandør-id" required>
+        <button type="submit">Opret</button>
+    </form>
+</main>
+
+<footer class="footer">
+    <p>ElektroStorage</p>
+</footer>
+
+<script src="js/orders.js"></script>
+</body>
+</html>

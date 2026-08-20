@@ -15,12 +15,12 @@ public class Supplier {
     @Column(nullable = false)
     private String address;
 
-    public Supplier() {
+    protected Supplier() {
     }
 
-    public Supplier(String address, String name) {
-        this.address = address;
+    public Supplier(String name, String address) {
         this.name = name;
+        this.address = address;
     }
 
     public Long getId() {

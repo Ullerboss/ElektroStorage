@@ -32,11 +32,11 @@ public class InventoryServiceImpl implements InventoryService{
     public InventoryCountDto submitCount(CreateInventoryCountDto request) {
         Component component = componentService.getComponentById(request.componentId());
 
-        boolean isOnStock = orderService.getReceivedOrders().stream()
+        boolean isInStock = orderService.getReceivedOrders().stream()
                 .flatMap(order -> order.getOrderLines().stream())
                 .anyMatch(line -> line.getComponent().getId().equals(component.getId()));
 
-        if (!isOnStock) {
+        if (!isInStock) {
             throw new BadRequestException("Denne komponent kan ikke optælles, da den ikke er på lager");
         }
 

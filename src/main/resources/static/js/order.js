@@ -106,7 +106,11 @@ async function showErrorFromResponse(response) {
 
 function displayOrder(order) {
     document.querySelector("#orderTitle").textContent = `Bestilling hos ${order.supplierName}`;
-    document.querySelector("#orderStatus").textContent = order.sentDate ? "Status: Sendt" : "Status: Kladde";
+    document.querySelector("#orderStatus").textContent = order.receivedDate
+        ? "Status: Modtaget"
+        : order.sentDate
+            ? "Status: Sendt"
+            : "Status: Kladde";
     document.querySelector("#trackingCode").value = order.trackingCode ?? "";
     document.querySelector("#expectedDeliveryDate").value = order.expectedDeliveryDate ?? "";
 
